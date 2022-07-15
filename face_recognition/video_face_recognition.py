@@ -12,13 +12,12 @@ if __name__ == "__main__":
     parser.add_argument("--known_path", default="../dataset/single_face")
     parser.add_argument("--save_path", default="../dataset/single_face/saved_encodings.pkl")
     parser.add_argument("--threshold", type=float, default=0.6)
-    parser.add_argument("--topic", type=float, default="pi-video")
+    parser.add_argument("--topic", default="pi-video")
     args = parser.parse_args()
 
     server_ip = os.environ.get("SERVER_IP")
     consumer = KafkaConsumer(args.topic, bootstrap_servers=f"{server_ip}:9092")
 
-    img = cv2.imread(args.target_path)
     
     # 미리 알고 있던 얼굴에 대한 정보를 불러옵니다
     known_names, known_encodings = get_known_encodings(args.known_path)
