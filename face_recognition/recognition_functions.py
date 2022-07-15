@@ -35,7 +35,7 @@ def get_known_encodings(known_path="../dataset/single_face", save_path=None):
         if name in saved_encodings:
             face_encoding = saved_encodings[name]
         else:
-            face_encoding = face_recognition.face_encodings(known_face)[0]
+            face_encoding = face_recognition.face_encodings(known_face)
         face_encodings[name] = face_encoding
 
     # 알려진 얼굴들의 인코딩 값을 저장합니다
