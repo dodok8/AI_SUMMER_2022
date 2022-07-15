@@ -3,8 +3,6 @@ import numpy as np
 import imutils
 import dlib
 import cv2
-import time
-import os
 import pathlib
 import argparse
 
