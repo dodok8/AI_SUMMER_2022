@@ -144,3 +144,7 @@ cython_debug/
 face_landmark/shape_predictor_68_face_landmarks.dat
 style_transfer/models/
 style_transfer/models.zip
+
+# youtube download file
+
+*.mp4
