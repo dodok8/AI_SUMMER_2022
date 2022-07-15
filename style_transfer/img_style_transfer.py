@@ -10,7 +10,7 @@ from style_transfer_functions import StyleTransferNet
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--img_path", default="../dataset/objects/dog_bicycle.jpg")
-    parser.add_argument("--style_path", default="/home/yura/AI_X_SUMMER_2021/style_transfer/models/mosaic_light.onnx")
+    parser.add_argument("--style_path", default=str(pathlib.Path().absolute().parent.joinpath('style_transfer/models/mosaic_light.onnx')))
     args = parser.parse_args()
 
     model = StyleTransferNet(args.style_path)

@@ -12,7 +12,7 @@ from kafka import KafkaConsumer
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--topic", default="pi-video")
-    parser.add_argument("--style_path", default="/home/yura/AI_X_SUMMER_2021/style_transfer/models/mosaic_light.onnx")
+    parser.add_argument("--style_path", default=str(pathlib.Path().absolute().parent.joinpath('style_transfer/models/mosaic_light.onnx')))
     parser.add_argument("--skip_ratio", type=int, default=10)
     args = parser.parse_args()
 
