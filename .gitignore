@@ -139,3 +139,8 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# data set file
+face_landmark/shape_predictor_68_face_landmarks.dat
+style_transfer/models/
+style_transfer/models.zip
