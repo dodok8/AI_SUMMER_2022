@@ -1,13 +1,10 @@
-import os
 import argparse
 import cv2
-import numpy as np
 
 from object_detection_functions import YOLOModel, read_classes, show_detected_objects
-import sys
-sys.path.insert(0, '../utils')
-from youtube_video import YoutubeStream
 
+import yt_dlp
+import pathlib
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -22,22 +19,34 @@ if __name__ == "__main__":
     model = YOLOModel(args.weight_path, args.cfg_path)
     print("모델 로딩이 완료되었습니다")
 
-    # 유튜브 동영상을 생성합니다
-    video = YoutubeStream(args.youtube_url)
+    ydl_opts = {
+        "format": "mp4/bestaudio/best",
+    }
     classes = read_classes(args.class_path)
-    
-    print("객체 검출을 시작합니다. 이미지 창에서 esc 버튼을 누르면 종료합니다.")
-    for ret, frame in video.get_stream():
-        if not ret:
-            print("비디오를 가져오는 중 오류가 발생했습니다")
-            break
-        
-        cv2.imshow("Original Video", frame)
 
-        outs = model.inference(frame)
-        show_detected_objects(frame, outs, classes, threshold=0.4)
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        info=ydl.extract_info(args.youtube_url, download=False)
+        ydl.download([info['webpage_url']])
+        file_name=ydl.prepare_filename(info)
+        new_path = pathlib.Path().absolute().joinpath(file_name)
 
-        if cv2.waitKey(1) > 0:
-            break
+        if not pathlib.Path(new_path).is_file():
+            print("파일 다운로드에 실패하였습니다.")
+        else: 
+            print("객체 검출을 시작합니다. 이미지 창에서 esc 버튼을 누르면 종료합니다.")
+            cap = cv2.VideoCapture(str(new_path))
+            while True:
+                ret, frame = cap.read()
+                if not ret:
+                    print("비디오를 가져오는 중 오류가 발생했습니다")
+                    break
+                
+                cv2.imshow("Original Video", frame)
 
-    print("객체 검출을 종료합니다")
+                outs = model.inference(frame)
+                show_detected_objects(frame, outs, classes, threshold=0.4)
+
+                if cv2.waitKey(1) > 0:
+                    break
+
+            print("객체 검출을 종료합니다")
