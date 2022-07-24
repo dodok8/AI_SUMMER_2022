@@ -1,51 +1,46 @@
-# AI + X Summer Camp 2021
-광주과학기술원 주관 고등학생 대상 2021년도 AI + X 여름 캠프의 실습 수업 자료입니다
+# 2022 AI SUMMER MATERIAL
+광주과학기술원 주관 고등학생 대상 2022년도 여름 행사 관련 자료입니다.
 
+## 📆 일정
 
+- Open GIST Science Lab : 2022/07/27
+- AI +X : 2022/07/29 ~ 2022/07/30
 
-<br/>
-<br/>
+## 실험 환경
 
-### 📆 2021/07/23 ~ 2021/07/24
+- 🛠️ 하드웨어
+  - NUC 8i3BEK
+  - Raspberry Pi 4
+  - Raspberry Pi Camera 2
+- ⚙️ OS
+  - Ubuntu 20.04.4 LTS
+  - Raspberry Pi OS Buster
+- 💾 프로그램 버전
+  - Python 3.8.10
+  - Kafka 2.8.0
+  - Kafka-python 2.0.2
+  - opencv-python 4.4.0.46
+  - imutils 0.5.4
+  - yt-dlp 2022.6.29
+  - dlib 19.22.0
+  - opencv-python 4.4.0.46
+  - face-recognition 1.3.0
 
-<br/>
+## 실습 구성
 
-### 실험 환경
-
-![image](https://user-images.githubusercontent.com/48202492/126940110-4e89f572-577b-4a7e-b62a-4c451b88667b.png)
-
-![image](https://user-images.githubusercontent.com/48202492/126940268-a2718c6e-8ef8-44e1-935a-e9dc3d704207.png)
-
-
-
-
-### 실습 구성
 - 기기 소개 - Raspberry Pi & NUC & Pi Camera
 - 리눅스 Bash 명령어 & Vim
 - SSH 상호 연결
 - Kafka + Python을 사용한 데이터 전송, 스트리밍
 - 컴퓨터 비전 애플리케이션: 사진, 유튜브 영상, Raspberry Pi 영상
-  - 얼굴 특징점 추출, 얼굴 인식, 스타일 변환, 객체 검출!
+  - 얼굴 특징점 추출, 얼굴 인식, 스타일 변환, 객체 검출
 
+## 강의 자료
 
-### Codes
+- Open GIST Science Lab : [#](https://drive.google.com/drive/folders/1cQjUXxa5tQbONZnD6mzob_CkoXxqruTy?usp=sharing)
+- AI + X : [#](https://drive.google.com/drive/folders/1gyRXrvngl8Fevjj1QyPgyiFnlveTyD3q?usp=sharing)
 
-
-### 강의 자료
-이미지를 클릭하면 강의 자료 slideshare로 이동합니다
-[<img src="https://user-images.githubusercontent.com/48202492/127745080-e2caf778-5729-4b99-98d8-9b3e8e95cad2.jpg">](https://www.slideshare.net/ChoiYura/2021-ai-x-1-linux)
-[<img src="https://user-images.githubusercontent.com/48202492/127745155-a69b5bb2-5356-4c0e-96fe-eedc0e3be020.jpg">](https://www.slideshare.net/ChoiYura/2021-ai-x-2-kafka)
-[<img src="https://user-images.githubusercontent.com/48202492/127745158-ae96ddaa-cc46-447a-af2d-2730fbd85893.jpg">](https://www.slideshare.net/ChoiYura/2021-ai-x-3-computer-vision-applications)
-
-
-
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-
-
+## 저작권
 
 © 2021. 최유라 all rights reserved.
+2022 김현서 일부 내용 수정 및 업데이트.
