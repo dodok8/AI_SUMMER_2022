@@ -8,10 +8,10 @@ import os
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--topic", default='chat')
+    parser.add_argument("--topic", default='chat') # python 실행시 topic을 인자로 받습니다. 인자를 주지 않으면 "chat"으로 기본값을 주겠습니다.
     args = parser.parse_args()
 
-    server_ip = os.environ.get("SERVER_IP")
+    server_ip = os.environ.get("SERVER_IP") # 환경변수에 저장된 서버 IP 주소를 가져옵니다.
     topic = args.topic
 
     # kafka-python 라이브러리에서 가져온 KafkaProducer를 사용해 JSON 형식의 메시지를 발행하는 Kafka producer를 정의합니다
