@@ -73,7 +73,7 @@ def identify_faces(distances, known_names, threshold=0.44):
 # 사진 내의 모든 얼굴들을 인코딩하고 등록된 얼굴인지 식별합니다
 def recognize_faces(img, face_locations, known_encodings, known_names, threshold=0.6):
     # 사진 내 탐지된 모든 얼굴을 인코딩합니다
-    target_encodings = face_recognition.face_encodings(img, face_locations)[0]
+    target_encodings = face_recognition.face_encodings(img, face_locations)
     
     # 저장되어 있는, 알려진 얼굴의 인코딩 값들과 사진에서 탐지된 인코딩 값들의 거리를 계산합니다
     distances = []

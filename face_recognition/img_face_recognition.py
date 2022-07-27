@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     img = cv2.imread(args.img_path)
     img = imutils.resize(img, width=800)
- 
+
     known_names, known_encodings = get_known_encodings(args.known_path)
     face_locations = detect_faces(img)
     recognized_names = recognize_faces(img, face_locations, known_encodings, known_names, args.threshold)
