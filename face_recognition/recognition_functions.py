@@ -23,7 +23,7 @@ def load_saved_encodings(save_path):
 # 저장되어 있는 얼굴들을 가져와 인코딩합니다
 def get_known_encodings(known_path="../dataset/single_face", save_path=None):
     face_encodings = {}
-    
+
     if not save_path: 
         save_path = f"{known_path}/saved_encodings.pkl"
     saved_encodings = load_saved_encodings(save_path)
@@ -34,9 +34,13 @@ def get_known_encodings(known_path="../dataset/single_face", save_path=None):
         
         if name in saved_encodings:
             face_encoding = saved_encodings[name]
+            face_encodings[name] = face_encoding
         else:
-            face_encoding = face_recognition.face_encodings(known_face)
-        face_encodings[name] = face_encoding
+            if len(face_recognition.face_encodings(known_face)) != 1 :
+                continue
+            face_encoding = face_recognition.face_encodings(known_face)[0]
+            saved_encodings[name] = face_encoding
+            face_encodings[name] = face_encoding
 
     # 알려진 얼굴들의 인코딩 값을 저장합니다
     with open(save_path, 'wb') as f:
@@ -67,9 +71,9 @@ def identify_faces(distances, known_names, threshold=0.44):
 
 
 # 사진 내의 모든 얼굴들을 인코딩하고 등록된 얼굴인지 식별합니다
-def recognize_faces(img, face_locations, known_encodings, known_names, threshold=0.44):
+def recognize_faces(img, face_locations, known_encodings, known_names, threshold=0.6):
     # 사진 내 탐지된 모든 얼굴을 인코딩합니다
-    target_encodings = face_recognition.face_encodings(img, face_locations)
+    target_encodings = face_recognition.face_encodings(img, face_locations)[0]
     
     # 저장되어 있는, 알려진 얼굴의 인코딩 값들과 사진에서 탐지된 인코딩 값들의 거리를 계산합니다
     distances = []
