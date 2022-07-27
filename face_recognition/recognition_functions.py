@@ -98,7 +98,7 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("--target_path", default="../dataset/multiple_face/Guckkasten.jpg")
+    parser.add_argument("--target_path", default="../dataset/multiple_face/bts2.jpg")
     parser.add_argument("--known_path", default="../dataset/single_face")
     parser.add_argument("--save_path", default="../dataset/single_face/saved_encodings.pkl")
     parser.add_argument("--threshold", type=float, default=0.44)
