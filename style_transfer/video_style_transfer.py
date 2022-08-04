@@ -4,6 +4,7 @@ import time
 import cv2
 import os
 import numpy as np
+import pathlib
 
 from style_transfer_functions import StyleTransferNet
 from kafka import KafkaConsumer
